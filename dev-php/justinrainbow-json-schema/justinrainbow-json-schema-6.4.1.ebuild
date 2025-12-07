@@ -13,12 +13,16 @@ LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64 ~arm ~arm64 ~x86"
 
-BDEPEND="dev-php/theseer-Autoload"
+BDEPEND="
+	dev-php/theseer-Autoload
+	!dev-php/json-schema
+"
 
 RDEPEND="
 	>=dev-lang/php-7.4:*
 	dev-php/fedora-autoloader
 	dev-php/marc-mabe-php-enum
+	!dev-php/json-schema
 "
 
 src_prepare() {
