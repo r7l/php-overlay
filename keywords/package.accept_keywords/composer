@@ -1,6 +1,7 @@
 dev-php/ca-bundle
 dev-php/class-map-generator
 dev-php/composer
+dev-php/fedora-autoloader
 dev-php/justinrainbow-json-schema
 dev-php/marc-mabe-php-enum
 dev-php/metadata-minifier
@@ -24,8 +25,9 @@ dev-php/symfony-polyfill-mbstring
 dev-php/symfony-polyfill-php73
 dev-php/symfony-polyfill-php80
 dev-php/symfony-polyfill-php81
+dev-php/symfony-polyfill-php84
 dev-php/symfony-process
 dev-php/symfony-service-contracts
 dev-php/symfony-string
-dev-php/theseer-Autoload
+dev-php/theseer-autoload
 dev-php/xdebug-handler
