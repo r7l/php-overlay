@@ -13,8 +13,7 @@ LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64 ~arm ~arm64 ~x86"
 
-BDEPEND="dev-php/theseer-Autoload"
-
+BDEPEND="dev-php/theseer-autoload"
 RDEPEND="
 	>=dev-lang/php-7.4:*
 	dev-php/fedora-autoloader
@@ -34,5 +33,5 @@ src_prepare() {
 
 src_install() {
 	insinto "/usr/share/php/Psr/Container"
-	doins -r *.php LICENSE src src/*
+	doins -r src autoload.php || die
 }

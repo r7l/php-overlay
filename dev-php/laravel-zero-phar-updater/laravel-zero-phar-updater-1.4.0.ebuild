@@ -13,8 +13,7 @@ LICENSE="BSD-3-Clause"
 SLOT="0"
 KEYWORDS="~amd64 ~arm ~arm64 ~x86"
 
-BDEPEND="dev-php/theseer-Autoload"
-
+BDEPEND="dev-php/theseer-autoload"
 RDEPEND="
 	>=dev-lang/php-7.4:*
 	dev-php/fedora-autoloader
@@ -24,6 +23,7 @@ src_prepare() {
 	default
 
 	phpab \
+		--quiet \
 		--output autoload.php \
 		--template fedora2 \
 		--basedir . \
@@ -32,6 +32,6 @@ src_prepare() {
 }
 
 src_install() {
-	insinto "/usr/share/php/Humbug/SelfUpdate"
-	doins -r *.php src src/*
+	insinto "/usr/share/php/Laravel-zero/Phar-Updater"
+	doins -r src autoload.php || die
 }

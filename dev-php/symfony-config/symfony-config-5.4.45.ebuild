@@ -13,8 +13,7 @@ LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64 ~arm ~arm64 ~x86"
 
-BDEPEND="dev-php/theseer-Autoload"
-
+BDEPEND="dev-php/theseer-autoload"
 RDEPEND="
 	>=dev-lang/php-7.2:*
 	dev-php/fedora-autoloader
@@ -42,17 +41,17 @@ src_prepare() {
 // Dependencies
 \Fedora\Autoloader\Dependencies::required([
 	"${VENDOR_DIR}/Fedora/Autoloader/autoload.php",
-	"${VENDOR_DIR}/Symfony/Component/DeprecationContracts/autoload.php",
-	"${VENDOR_DIR}/Symfony/Component/Filesystem/autoload.php",
-	"${VENDOR_DIR}/Symfony/Polyfill/Ctype/autoload.php",
-	"${VENDOR_DIR}/Symfony/Polyfill/Mbstring/autoload.php",
-	"${VENDOR_DIR}/Symfony/Polyfill/Php80/autoload.php",
-	"${VENDOR_DIR}/Symfony/Polyfill/Php81/autoload.php"
+	"${VENDOR_DIR}/Symfony/Deprecation-Contracts/autoload.php",
+	"${VENDOR_DIR}/Symfony/Filesystem/autoload.php",
+	"${VENDOR_DIR}/Symfony/Polyfill-Ctype/autoload.php",
+	"${VENDOR_DIR}/Symfony/Polyfill-Mbstring/autoload.php",
+	"${VENDOR_DIR}/Symfony/Polyfill-Php80/autoload.php",
+	"${VENDOR_DIR}/Symfony/Polyfill-Php81/autoload.php"
 ]);
 EOF
 }
 
 src_install() {
-	insinto "/usr/share/php/Symfony/Component/Config"
-	doins -r *.php Builder Definition Exception LICENSE Loader Resource Util
+	insinto "/usr/share/php/Symfony/Config"
+	doins -r Builder ConfigCache.php ConfigCacheFactory.php ConfigCacheFactoryInterface.php ConfigCacheInterface.php Definition Exception FileLocator.php FileLocatorInterface.php Loader Resource ResourceCheckerConfigCache.php ResourceCheckerConfigCacheFactory.php ResourceCheckerInterface.php Util autoload.php || die
 }

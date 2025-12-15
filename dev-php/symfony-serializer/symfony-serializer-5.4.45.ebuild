@@ -13,8 +13,7 @@ LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64 ~arm ~arm64 ~x86"
 
-BDEPEND="dev-php/theseer-Autoload"
-
+BDEPEND="dev-php/theseer-autoload"
 RDEPEND="
 	>=dev-lang/php-7.2:*
 	dev-php/fedora-autoloader
@@ -27,25 +26,27 @@ src_prepare() {
 	default
 
 	phpab \
+		--quiet \
 		--output autoload.php \
 		--template fedora2 \
 		--basedir . \
 		. \
 		|| die
+
 	VENDOR_DIR="${EPREFIX}/usr/share/php"
 	cat >> autoload.php <<EOF || die "failed to extend autoload.php"
 
 // Dependencies
 \Fedora\Autoloader\Dependencies::required([
 	"${VENDOR_DIR}/Fedora/Autoloader/autoload.php",
-	"${VENDOR_DIR}/Symfony/Component/DeprecationContracts/autoload.php",
-	"${VENDOR_DIR}/Symfony/Polyfill/Ctype/autoload.php",
-	"${VENDOR_DIR}/Symfony/Polyfill/Php80/autoload.php"
+	"${VENDOR_DIR}/Symfony/Deprecation-Contracts/autoload.php",
+	"${VENDOR_DIR}/Symfony/Polyfill-Ctype/autoload.php",
+	"${VENDOR_DIR}/Symfony/Polyfill-Php80/autoload.php"
 ]);
 EOF
 }
 
 src_install() {
-	insinto "/usr/share/php/Symfony/Component/Serializer"
-	doins -r *.php Annotation CacheWarmer DependencyInjection Encoder Exception Extractor Mapping NameConverter Normalizer
+	insinto "/usr/share/php/Symfony/Serializer"
+	doins -r Annotation CacheWarmer DependencyInjection Encoder Exception Extractor Mapping NameConverter Normalizer Serializer.php SerializerAwareInterface.php SerializerAwareTrait.php SerializerInterface.php autoload.php || die
 }

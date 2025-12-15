@@ -11,7 +11,7 @@ LICENSE="BSD"
 SLOT="0"
 KEYWORDS="~amd64 ~arm64"
 
-BDEPEND="dev-php/theseer-Autoload"
+BDEPEND="dev-php/theseer-autoload"
 
 RDEPEND="dev-lang/php:*[xml]
 	dev-php/fedora-autoloader

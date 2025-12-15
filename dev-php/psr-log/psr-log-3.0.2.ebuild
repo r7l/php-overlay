@@ -13,8 +13,7 @@ LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64 ~arm ~arm64 ~x86"
 
-BDEPEND="dev-php/theseer-Autoload"
-
+BDEPEND="dev-php/theseer-autoload"
 RDEPEND="
 	>=dev-lang/php-8.0:*
 	dev-php/fedora-autoloader
@@ -27,12 +26,12 @@ src_prepare() {
 		--quiet \
 		--output autoload.php \
 		--template fedora2 \
-		--basedir src \
-		src \
+		--basedir . \
+		. \
 		|| die
 }
 
 src_install() {
 	insinto "/usr/share/php/Psr/Log"
-	doins -r *.php LICENSE src/*
+	doins -r src autoload.php || die
 }

@@ -13,8 +13,7 @@ LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64 ~arm ~arm64 ~x86"
 
-BDEPEND="dev-php/theseer-Autoload"
-
+BDEPEND="dev-php/theseer-autoload"
 RDEPEND="
 	>=dev-lang/php-5.3:*
 	dev-php/fedora-autoloader
@@ -25,11 +24,13 @@ src_prepare() {
 	default
 
 	phpab \
+		--quiet \
 		--output autoload.php \
 		--template fedora2 \
 		--basedir . \
 		. \
 		|| die
+
 	VENDOR_DIR="${EPREFIX}/usr/share/php"
 	cat >> autoload.php <<EOF || die "failed to extend autoload.php"
 
@@ -42,6 +43,6 @@ EOF
 }
 
 src_install() {
-	insinto "/usr/share/php/Webmozart/PathUtil"
-	doins -r *.php docs src src/* tests
+	insinto "/usr/share/php/Webmozart/Path-Util"
+	doins -r src autoload.php || die
 }

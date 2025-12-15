@@ -16,7 +16,7 @@ LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64 ~arm64"
 
-BDEPEND="dev-php/theseer-Autoload
+BDEPEND="dev-php/theseer-autoload
 	dev-php/PHP_CodeSniffer"
 
 RDEPEND="dev-lang/php:*

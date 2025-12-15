@@ -13,8 +13,7 @@ LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64 ~arm ~arm64 ~x86"
 
-BDEPEND="dev-php/theseer-Autoload"
-
+BDEPEND="dev-php/theseer-autoload"
 RDEPEND="
 	>=dev-lang/php-7.2:*
 	dev-php/fedora-autoloader
@@ -43,15 +42,15 @@ src_prepare() {
 \Fedora\Autoloader\Dependencies::required([
 	"${VENDOR_DIR}/Fedora/Autoloader/autoload.php",
 	"${VENDOR_DIR}/Psr/Container/autoload.php",
-	"${VENDOR_DIR}/Symfony/Component/DeprecationContracts/autoload.php",
-	"${VENDOR_DIR}/Symfony/Polyfill/Php80/autoload.php",
-	"${VENDOR_DIR}/Symfony/Polyfill/Php81/autoload.php",
-	"${VENDOR_DIR}/Symfony/Contracts/Service/autoload.php"
+	"${VENDOR_DIR}/Symfony/Deprecation-Contracts/autoload.php",
+	"${VENDOR_DIR}/Symfony/Polyfill-Php80/autoload.php",
+	"${VENDOR_DIR}/Symfony/Polyfill-Php81/autoload.php",
+	"${VENDOR_DIR}/Symfony/Service-Contracts/autoload.php"
 ]);
 EOF
 }
 
 src_install() {
-	insinto "/usr/share/php/Symfony/Component/DependencyInjection"
-	doins -r *.php Argument Attribute Compiler Config Dumper Exception Extension LICENSE LazyProxy Loader ParameterBag
+	insinto "/usr/share/php/Symfony/Dependency-Injection"
+	doins -r Alias.php Argument Attribute ChildDefinition.php Compiler Config Container.php ContainerAwareInterface.php ContainerAwareTrait.php ContainerBuilder.php ContainerInterface.php Definition.php Dumper EnvVarLoaderInterface.php EnvVarProcessor.php EnvVarProcessorInterface.php Exception ExpressionLanguage.php ExpressionLanguageProvider.php Extension LazyProxy Loader Parameter.php ParameterBag Reference.php ReverseContainer.php ServiceLocator.php TaggedContainerInterface.php TypedReference.php Variable.php autoload.php || die
 }
